@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=你的AK"></script>
+	<title>测距</title>
+</head>
+<body>
+	<div id="allmap"></div>
+	<div id="result"></div>
+</body>
+</html>
+<script type="text/javascript">
+	/**
+	* 计算两点之间的距离
+	**/
+	function calculate(pointALng,pointALat,pointBLng,pointBLat){
+		// 百度地图API功能
+		var map = new BMap.Map("allmap");
+		var pointA = new BMap.Point(pointALng,pointALat); 
+		var pointB = new BMap.Point(pointBLng,pointBLat); 
+		var result= (map.getDistance(pointA,pointB)).toFixed(2);
+		document.getElementById('result').innerText = result;
+		document.getElementById('result').setAttribute('result',result);
+	}
+
+</script>
+	
